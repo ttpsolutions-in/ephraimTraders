@@ -1,0 +1,42 @@
+﻿<div class="card">
+    <div class="card-header"><b>{{PageTitle}}</b>
+        <span style="float:right"><b>Bill No.-</b> {{BillNo}} &nbsp;&nbsp;|&nbsp;&nbsp; <b>Date -</b> {{TodaysDate}}</span>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="ddlName">Name</label>
+                    <select id="ddlName" name="ddlName" ng-model="WholeSale.SupplierRetailer"  ng-change="GetContactNo()" class="form-control" ng-options="item.SupplierRetailerId as item.Name for item in SupplierRetailers" required>
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="txtOthers">Others</label>
+                    <input type="text" class="form-control" id="txtOthers" name="txtOthers" placeholder="Enter Other Name" ng-model="WholeSale.Others" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtContactNo">Contact No.</label>
+                    <input type="tel" class="form-control" id="txtContactNo" name="txtContactNo" placeholder="Enter Contact No." ng-model="WholeSale.ContactNo" required>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-12 nopadding">
+                    <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellnav ui-grid-selection
+                         class="myGrid"></div>
+                    <div class="nodatatxt" data-ng-if="gridOptions.data.length==0">No Records Found</div>
+                </div>
+            </div>
+
+            <hr />
+            <div class="row float-right">
+                <button type="button" class="btn btn-info" ng-click="AddItem()">Add Item</button> &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" ng-click="AddItem()">Submit</button>&nbsp;&nbsp;&nbsp;
+            </div>
+        </form>
+    </div>
+</div>
+
